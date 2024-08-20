@@ -1,23 +1,21 @@
-import { useState,useRef} from "react";
+import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../util/validate";
 
 const Login = () => {
   const [signIn, setSignIn] = useState(true);
+  const [errorMessage, setMessage] = useState(null);
 
   const toggle = () => {
     setSignIn(!signIn);
   };
-  const email=useRef(null);
-  const password=useRef(null);
+  const email = useRef(null);
+  const password = useRef(null);
 
   const handleMainClick = () => {
-    console.log(email)
-    console.log(password)
-
-    
-   const message= checkValidData(email.current.value,password.current.value)
-   console.log(message)
+    const message = checkValidData(email.current.value, password.current.value);
+    setMessage(message);
+    if(message) return 
 
   };
 
@@ -36,31 +34,37 @@ const Login = () => {
         <h1 className="font-bold text-4xl py-4">
           {signIn ? "Sign In" : "Sign Up"}
         </h1>
-        <input ref={email}
+        <input
+          ref={email}
           type="text"
           placeholder="Email"
           className="py-3 px-4 mb-4 w-full bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
         />
-        <input ref={password}
+        <input
+          ref={password}
           type="password"
           placeholder="Password"
           className="py-3 px-4 mb-4 w-full bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
         />
+        <p className="text-red-500 font-bold">{errorMessage}</p>
         {!signIn && (
-          <input 
+          <input
             type="password"
             placeholder="Confirm Password"
             aria-label="Confirm Password"
             className="py-3 px-4 mb-6 w-full bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-red-600"
           />
         )}
-        <button className="py-3 bg-red-600 hover:bg-red-700 w-full rounded-md text-lg font-semibold" onClick={handleMainClick}>
+        <button
+          className="py-3 bg-red-600 hover:bg-red-700 w-full rounded-md text-lg font-semibold"
+          onClick={handleMainClick}
+        >
           {signIn ? "Sign In" : "Sign Up"}
         </button>
         {signIn && (
           <div className="flex justify-between items-center mt-4 text-sm">
             <div>
-              <input 
+              <input
                 type="checkbox"
                 id="remember"
                 className="form-checkbox bg-gray-800 text-red-600"
