@@ -19,7 +19,7 @@ const Login = () => {
             <form
                 className="absolute top-1/2 left-1/2 w-full max-w-md p-8 bg-black bg-opacity-80 transform -translate-x-1/2 -translate-y-1/2 rounded-md text-white"
             >
-                <h1 className="font-bold text-4xl py-4">{signIn ? "Sign In" : "Sign Up"}</h1>
+                <h1 className="font-bold text-4xl py-4">{signIn?"Sign In" : "Sign Up"}</h1>
                 <input
                     type="text"
                     placeholder="Email"
