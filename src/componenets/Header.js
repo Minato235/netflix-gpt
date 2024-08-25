@@ -1,6 +1,7 @@
 import { auth } from "./firebase";
 import { signOut } from "firebase/auth";
 import {useNavigate} from "react-router-dom"
+import LeavingSoonPopup from "./LeavingSoon";
 const Header = () => {
     const navigate=useNavigate();
   const handleSignOut = () => {
@@ -29,7 +30,7 @@ const Header = () => {
           src="https://occ-0-2482-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
           alt="icon-right"
         ></img>
-        <button onClick={handleSignOut} className="font-bold mr-2 bg-slate-200">
+        <button onClick={handleSignOut}onDoubleClick={LeavingSoonPopup} className="font-bold mr-2 bg-slate-200">
           Sign Out
         </button>
       </div>
