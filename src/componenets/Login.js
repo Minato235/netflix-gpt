@@ -2,16 +2,15 @@ import { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../util/validate";
 import { auth } from "../componenets/firebase";
-import {useNavigate} from "react-router-dom"
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { loginBg } from "../util/constants";
 
 const Login = () => {
   const [signIn, setSignIn] = useState(true);
   const [errorMessage, setMessage] = useState(null);
-  const navigate=useNavigate();
 
   const toggle = () => {
     setSignIn(!signIn);
@@ -39,7 +38,6 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setMessage(errorCode + "==>" + errorMessage);
-          navigate("/")
 
           // ..
         });
@@ -53,8 +51,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("200 success");
-          navigate("/Browse")
+          console.log("200 success"+user);
 
           // ...
         })
@@ -62,7 +59,6 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           setMessage(errorCode + "==>" + errorMessage);
-          navigate("/")
 
         });
     }
@@ -72,7 +68,7 @@ const Login = () => {
     <div className="relative h-screen">
       <Header />
       <img
-        src="https://assets.nflxext.com/ffe/siteui/vlv3/20bf1f4d-1c73-48fd-8689-310d6dd80efc/304b7563-abfe-41bf-95d0-8bb58c03bea6/US-en-20240812-POP_SIGNUP_TWO_WEEKS-perspective_WEB_633da30f-4247-4a0f-b146-0501cbf91542_large.jpg"
+        src={loginBg}
         alt="background"
         className="absolute inset-0 w-full h-full object-cover -z-10"
       />
