@@ -14,6 +14,9 @@
     -added hardcode values 
     -Create Tmd accout and to  take api keys 
     -got success taking tmd Now playing data
+deploy
 
+# NETFLIX-GPT-Depoy
+https://netflix-gpt-5f2e9.web.app/
 
 
