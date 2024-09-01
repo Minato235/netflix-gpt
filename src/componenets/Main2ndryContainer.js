@@ -17,3 +17,4 @@ const SecondryContainer = () => {
   );
 };
 export default SecondryContainer;
+//we need to get diffrent movies uits pending
