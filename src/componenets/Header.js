@@ -51,7 +51,7 @@ const Header = () => {
     <div className="absolute  w-screen px-8 py-2 bg-gradient-to-b from to-black p-2 flex justify-between">
       <div>
         <img
-          className="0.25rem w-44"
+          className="0.25rem w-44 "
           src={netflixLogo}
           alt="Logo"
         ></img>
