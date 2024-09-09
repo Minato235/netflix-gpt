@@ -6,6 +6,7 @@ import { useEffect } from "react";
 import { addUser, removeUser } from "../util/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { logo, netflixLogo } from "../util/constants";
+import {toggleGptSearch} from "../util/gptSlice"
 
 const Header = () => {
   const navigate = useNavigate();
@@ -24,10 +25,7 @@ const Header = () => {
       });
   };
 
-  const handleToogle=()=>{
-    
-  }
-
+  const handleGptToogle = () => {dispatch(toggleGptSearch())};
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -62,7 +60,8 @@ const Header = () => {
           <button
             type="button"
             className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-7 py-3 text-center me-2 mb-2"
-          onClick={handleToogle}>
+            onClick={handleGptToogle}
+          >
             Netflix GPT
           </button>
           <img className="w-14 h-14 mx-4" src={logo} alt="icon-right" />
