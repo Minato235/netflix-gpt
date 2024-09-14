@@ -8,7 +8,7 @@ const MainContainer = () => {
   const a = Math.floor(Math.random() * (len - 1)) + 1;
 // console.log(`Random value between 1 and 20 is ${a}`);
 
-  const movie = movies[0];
+  const movie = movies[a];
 
   // console.log(movie);
   const {original_title,overview,id}=movie;

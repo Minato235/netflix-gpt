@@ -12,6 +12,8 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user); // Access user from Redux store
+  const showGptSearch=useSelector((state)=>state.gpt.showGptSearch)
+// console.log(showGptSearch)
 
   const handleSignOut = () => {
     signOut(auth)
@@ -57,12 +59,13 @@ const Header = () => {
       </div>
       {user && (
         <div className="flex items-center">
+          
           <button
             type="button"
             className="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-7 py-3 text-center me-2 mb-2"
             onClick={handleGptToogle}
           >
-            Netflix GPT
+            {showGptSearch?"Home":"Netflix GPT"}
           </button>
           <img className="w-14 h-14 mx-4" src={logo} alt="icon-right" />
           <button
