@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 // import { loginBg } from "../util/constants";
-import openAi from "../util/openai";
 
 const GptSearchBar = () => {
   const searchText = useRef(null);
